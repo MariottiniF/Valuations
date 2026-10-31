@@ -16,8 +16,8 @@ Kd   = Rf + spread de crédito (+ spread do país, quando aplicável)
 ```
 
 - **Dívida** = empréstimos + títulos + passivo de arrendamento (decisão IFRS 16; ver a seção 4 para US GAAP).
-- **WACC único** (D11): o mesmo WACC desconta o período explícito e a perpetuidade; sem *rolling WACC* nem pesos-alvo.
-- **Pesos**: atuais; equity a valor de mercado; dívida a valor de mercado quando houver títulos negociados, senão contábil.
+- **WACC único** (D11): o mesmo WACC desconta o período explícito e a perpetuidade; sem *rolling WACC*.
+- **Pesos** (critério em D12): classificar a empresa antes de montar o WACC, pelos últimos 5 exercícios (ou desde a abertura de capital, o que for menor) de Dívida Líquida/EBITDA — (a) **estável** (desvio-padrão ≤ 1,0x, sem meta divulgada) → pesos **atuais**; (b) **processo concreto de desalavancagem/alavancagem** (meta numérica com prazo, em guidance/covenant/fato relevante) → pesos da **estrutura-alvo divulgada**, um único conjunto para toda a projeção; (c) **estrutura futura incerta** (desvio-padrão > 1,0x sem meta, ou evento recente não representativo) → pesos **atuais** + sensibilidade obrigatória ao intervalo histórico. Em qualquer caso: equity a valor de mercado; dívida a valor de mercado quando houver títulos negociados, senão contábil.
 - **Caixa**: fora do WACC e fora do beta. É somado na ponte EV → equity (decisão do caixa, como em [D]).
 - **Perpetuidade**: ROIC = WACC (salvo casos especiais) e g = LTG, com **g ≤ Rf da moeda** (ver a seção 5).
 

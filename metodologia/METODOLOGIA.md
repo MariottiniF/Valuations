@@ -26,7 +26,7 @@ Guia único e sequencial para montar uma valuation, do começo ao fim. Cada etap
 4. **Ke = Rf + β × ERP.**
 5. **Kd** — dívida a mercado (título líquido) ou rating/rating sintético + spread. Alíquota marginal (D34% no Brasil; tabela Damodaran fora).
 6. **Estrutura de capital** — pesos a mercado; dívida incluindo arrendamentos (D2); caixa fora (D1).
-7. **WACC único** (D11): um só WACC para todo o período explícito e para a perpetuidade, sem *rolling WACC*. Pesos **atuais a mercado**; Rf da **NTN-B mais longa** (D4); ERP de **longo prazo** (D5).
+7. **WACC único** (D11): um só WACC para todo o período explícito e para a perpetuidade, sem *rolling WACC*. Pesos conforme o critério de **D12** (padrão: atuais a mercado; exceções para desalavancagem/alavancagem concreta e para estrutura incerta); Rf da **NTN-B mais longa** (D4); ERP de **longo prazo** (D5).
 8. **Checagem de sanidade**: comparar com o WACC médio do setor (Damodaran, fora do Brasil; pares locais, no Brasil). Divergência > 1,5 p.p. exige explicação.
 
 ### 1.4 Saída desta etapa
