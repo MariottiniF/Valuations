@@ -31,11 +31,11 @@ ebit0=ebit_ltm_rep+185.653-ext_ltm+ppa_ltm
 da0=817.370-593.997+650.700
 IC0=1208.247+debt_fin+deriv_net+leases+acq+div_pay+sist_s-cash
 def run(gs=None,m0=None,mT=0.118,ronic_x=0.135,erp_x=None,erp_p=None,dvT=dvT,gL=g,bu=bu,wacc_shift=0.0,spread=spread,verbose=False):
-    erp_x=erp_impl if erp_x is None else erp_x
+    erp_x=erp if erp_x is None else erp_x
     erp_p=erp if erp_p is None else erp_p
     gs=gs or [0.10,0.10,0.09,0.08,0.07,0.066,0.063,0.060,0.058,0.0557]
     m0=m0 if m0 is not None else ebit0/rev0
-    N=len(gs); wp=wacc(dvT,rf_p,erp_p,bu,spread)[0]+wacc_shift
+    N=len(gs); wp=wacc(dv0,rf_p,erp_p,bu,spread)[0]+wacc_shift   # D11: WACC único (pesos atuais, NTN-B longa, ERP LP)
     rows=[]; rev=rev0; disc=1; pv=0; jcp_eq=1208.247
     for i in range(N):
         rev*=1+gs[i]
@@ -46,8 +46,7 @@ def run(gs=None,m0=None,mT=0.118,ronic_x=0.135,erp_x=None,erp_p=None,dvT=dvT,gL=
         reinv=gnext/ronic*nopat
         jcp=0.085*jcp_eq*t; jcp_eq*=1+gs[i]
         fcff=nopat-reinv+jcp
-        dv=dv0+(dvT-dv0)*min(i,4)/4
-        w=wacc(dv,rf_x,erp_x,bu,spread)[0]+wacc_shift
+        w=wp
         disc/= (1+w); pv+=fcff*disc
         rows.append(dict(ano=i+1,receita=rev,g=gs[i],margem=mg,ebit=ebit,ebitda=ebit+rev*da0/rev0,nopat=nopat,ronic=ronic,reinv=reinv,jcp=jcp,fcff=fcff,wacc=w,fd=disc,pv=fcff*disc))
     nopat11=rows[-1]['nopat']*(1+gL)
@@ -57,12 +56,10 @@ def run(gs=None,m0=None,mT=0.118,ronic_x=0.135,erp_x=None,erp_p=None,dvT=dvT,gL=
     eq=ev-debt_fin-deriv_net-leases-acq-div_pay-sist_s-conting+cash+inv_nc
     return dict(rows=rows,wp=wp,tv=tv,pvtv=pvtv,pv=pv,ev=ev,eq=eq,ps=eq/shares)
 base=run()
-w0=wacc(dv0,rf_x,erp_impl); wT=wacc(dvT,rf_p,erp); w0b=wacc(dv0,rf_x,erp)
+w0=wacc(dv0,rf_p,erp); wT=w0; w0b=w0
 out=dict(w0b=w0b,g=g,rf_x=rf_x,rf_p=rf_p,erp=erp,E=E,D=D,dv0=dv0,w0=w0,wT=wT,w_xT=wacc(dvT,rf_x),cash=cash,debt_fin=debt_fin,deriv_net=deriv_net,leases=leases,acq=acq,
   rev0=rev0,ebit0=ebit0,ebit_rep=ebit_ltm_rep,da0=da0,IC0=IC0,roic0=ebit0*(1-t)/IC0,m0=ebit0/rev0)
 print(json.dumps({k:(round(v,4) if isinstance(v,float) else [round(x,4) for x in v]) for k,v in out.items()},indent=0))
 print({k:round(v,2) for k,v in base.items() if k!='rows'})
-json.dump(dict(out=out,base={k:v for k,v in base.items()}),open('/home/claude/work/out/base.json','w'),default=float,indent=1)
+json.dump(dict(out=out,base={k:v for k,v in base.items()}),open('base.json','w'),default=float,indent=1)
 
-for lab,kw in [("A base D5 (impl expl / 5,31 perp)",{}),("B 5,31 em tudo",dict(erp_x=erp)),("C implícito em tudo",dict(erp_p=erp_impl))]:
-    r=run(**kw); print(lab, {k:round(v,1) for k,v in r.items() if k!='rows'}, "wacc anos",[round(x['wacc'],4) for x in r['rows']])

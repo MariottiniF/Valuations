@@ -16,7 +16,8 @@ Kd   = Rf + spread de crédito (+ spread do país, quando aplicável)
 ```
 
 - **Dívida** = empréstimos + títulos + passivo de arrendamento (decisão IFRS 16; ver a seção 4 para US GAAP).
-- **Pesos**: equity a valor de mercado; dívida a valor de mercado quando houver títulos negociados, senão contábil.
+- **WACC único** (D11): o mesmo WACC desconta o período explícito e a perpetuidade; sem *rolling WACC* nem pesos-alvo.
+- **Pesos**: atuais; equity a valor de mercado; dívida a valor de mercado quando houver títulos negociados, senão contábil.
 - **Caixa**: fora do WACC e fora do beta. É somado na ponte EV → equity (decisão do caixa, como em [D]).
 - **Perpetuidade**: ROIC = WACC (salvo casos especiais) e g = LTG, com **g ≤ Rf da moeda** (ver a seção 5).
 
@@ -26,8 +27,8 @@ Kd   = Rf + spread de crédito (+ spread do país, quando aplicável)
 
 | Parâmetro | Regra | Fonte |
 |---|---|---|
-| Rf | NTN-B **atual**: `(1 + cupom real) × (1 + IPCA LP) − 1`. Explícito: vencimento próximo ao fim da projeção. Perpetuidade: NTN-B mais longa | Tesouro / ANBIMA; IPCA do cenário macro |
-| ERP | **Prêmio único em R$**, sem somar risco-país (já está na NTN-B). Âncoras: prêmio implícito do Ibovespa (recalculado por trimestre) e prêmio maduro + diferencial de risco-país. Perpetuidade: média de vários anos | Cálculo do canal; Damodaran como checagem |
+| Rf | NTN-B **atual**: `(1 + cupom real) × (1 + IPCA LP) − 1`. NTN-B **mais longa**, para toda a projeção (D11) | Tesouro / ANBIMA; IPCA do cenário macro |
+| ERP | **Prêmio único em R$, de longo prazo**, sem somar risco-país (já está na NTN-B): média de vários anos do implícito do Ibovespa; sem série, proxy = prêmio maduro + (CRP − spread soberano). O implícito do trimestre é checagem. Mesmo ERP em toda a projeção (D11) | Cálculo do canal; Damodaran |
 | β | Bottom-up: listadas brasileiras do setor; menos de ~10 → emergentes ou globais | Comparáveis; Damodaran (Emerging/Global) |
 | Kd | Rf + spread das debêntures da empresa (ANBIMA); na falta, rating ou rating sintético via EBIT/juros | ANBIMA; tabela de Damodaran |
 | t | **34%** marginal (IR + CSLL), salvo benefício documentado | Legislação |

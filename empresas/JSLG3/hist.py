@@ -25,4 +25,4 @@ for i,y in enumerate(Y):
     out.append(o)
 out[4]['cresc']=rev[4]/(9640.608-2.484893e3*0+0)-1
 for o in out: print({k:(round(v,3) if isinstance(v,float) else v) for k,v in o.items()})
-json.dump(out,open('out/hist.json','w'),indent=1)
+json.dump(out,open('hist.json','w'),indent=1)

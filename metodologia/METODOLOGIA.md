@@ -26,11 +26,11 @@ Guia único e sequencial para montar uma valuation, do começo ao fim. Cada etap
 4. **Ke = Rf + β × ERP.**
 5. **Kd** — dívida a mercado (título líquido) ou rating/rating sintético + spread. Alíquota marginal (D34% no Brasil; tabela Damodaran fora).
 6. **Estrutura de capital** — pesos a mercado; dívida incluindo arrendamentos (D2); caixa fora (D1).
-7. **WACC explícito** (pesos atuais) e **WACC de perpetuidade** (pesos-alvo de longo prazo, documentados).
+7. **WACC único** (D11): um só WACC para todo o período explícito e para a perpetuidade, sem *rolling WACC*. Pesos **atuais a mercado**; Rf da **NTN-B mais longa** (D4); ERP de **longo prazo** (D5).
 8. **Checagem de sanidade**: comparar com o WACC médio do setor (Damodaran, fora do Brasil; pares locais, no Brasil). Divergência > 1,5 p.p. exige explicação.
 
 ### 1.4 Saída desta etapa
-Uma tabela única: Rf, β, ERP, Ke, Kd(1−t), pesos, WACC explícito, WACC perpétuo — cada linha com fonte e data — mais um parágrafo explicando as escolhas (por que esse beta, por que esse Kd) para entrar no material do vídeo.
+Uma tabela única: Rf, β, ERP, Ke, Kd(1−t), pesos e WACC (único) — cada linha com fonte e data — mais um parágrafo explicando as escolhas (por que esse beta, por que esse Kd) para entrar no material do vídeo.
 
 ---
 
@@ -83,7 +83,7 @@ Uma tabela única: Rf, β, ERP, Ke, Kd(1−t), pesos, WACC explícito, WACC perp
 
 ### 4.4 Estágios (tema 13, 14)
 - Definir o número de estágios e a duração de cada um, conforme a maturidade e a vantagem competitiva (ligação com D3a).
-- Período explícito com taxas e pesos de capital do `MACRO.md`/`PROCEDIMENTO_WACC.md` vigentes; convergência aos parâmetros de perpetuidade ao longo da fase de transição.
+- Todos os anos descontados pelo **mesmo WACC** da etapa 1 (D11). A fase de transição converge crescimento, margem e ROIC aos parâmetros de perpetuidade, **nunca** a taxa de desconto.
 
 ### 4.5 Casos especiais (acionar se aplicável)
 - Prejuízo, cíclica, start-up → tema 45.
@@ -97,7 +97,7 @@ Uma tabela única: Rf, β, ERP, Ke, Kd(1−t), pesos, WACC explícito, WACC perp
 - **ROIC = WACC** na perpetuidade, salvo caso especial justificado por escrito (D3a).
 - **g = LTG**, na moeda da valuation, com g ≤ Rf dessa moeda (seção 5 do `PROCEDIMENTO_WACC.md`).
 - ΔNCG ≥ 0 na perpetuidade (C2).
-- Trazer o valor terminal a valor presente pelo WACC explícito acumulado (se os pesos mudarem ano a ano na fase de transição).
+- O valor terminal usa o mesmo WACC do explícito (D11), tanto no denominador `(WACC − g)` quanto no desconto a valor presente: `VT / (1 + WACC)^n`. Com ROIC = WACC, `VT = NOPAT(n+1) / WACC`.
 
 ---
 

@@ -77,12 +77,12 @@ Criar/atualizar este arquivo a cada revisão trimestral, com o seguinte formato:
 Atualizado em: [data]
 
 ## Brasil
-- NTN-B (vencimento usado no explícito: [ano]): [X]% real — fonte: Tesouro Direto, [data]
-- NTN-B mais longa (perpetuidade): [X]% real — fonte: Tesouro Direto, [data]
+- NTN-B mais longa (Rf de toda a projeção, D11): [X]% real — fonte: Tesouro Direto, [data]
 - IPCA esperado longo prazo: [X]% a.a. — fonte: Focus/BCB, [data]
 - PIB real potencial longo prazo: [X]% a.a. — fonte: Focus/BCB, [data]
 - g nominal (perpetuidade, R$) = (1+IPCA)×(1+PIB real) − 1 = [X]%
-- Prêmio implícito do Ibovespa: [X]% — cálculo do canal, [data], memória de cálculo em [link/anexo]
+- Prêmio implícito do Ibovespa do trimestre: [X]% — cálculo do canal, [data], memória de cálculo em [link/anexo] (entra na série)
+- ERP de longo prazo (usado no WACC, D5/D11): [X]% — média da série / proxy, [data]
 - Câmbio PTAX: R$ [X]/US$ — fonte: BCB, [data]
 
 ## EUA

@@ -26,12 +26,13 @@ med=dict(ev=st.median([p['ev_set'] for p in peers.values()]), pl=st.median([p['p
          ev_now=st.median([p['ev'] for p in peers.values()]))
 res['peers']=peers; res['med']=med
 # Cenários ERP
-res['erp_scen']={lab:run(**kw)['ps'] for lab,kw in [("A",{}),("B",dict(erp_x=erp)),("C",dict(erp_p=erp_impl))]}
+res['erp_scen']={f"{e:.2%}":run(erp_p=e)['ps'] for e in (erp_impl,0.0431,erp,0.0631)}
+res['wacc_alvo50']=run(erp_p=erp,dvT=0.5)['ps']
 # Sensibilidade WACC x margem
 res['grid_wm']={f"{ws:+.0%}":{f"{m:.1%}":run(wacc_shift=ws,mT=m)['ps'] for m in (0.108,0.113,0.118,0.123,0.128)} for ws in (-0.02,-0.01,0,0.01,0.02)}
 res['grid_g']={f"{ws:+.0%}":{f"{gg:.2%}":run(wacc_shift=ws,gL=gg)['ps'] for gg in (0.045,g,0.065)} for ws in (-0.01,0,0.01)}
 res['grid_ronic']={f"{ro:.1%}":run(ronic_x=ro)['ps'] for ro in (0.11,0.12,0.135,0.15,0.17)}
-res['dvT']={f"{d:.0%}":run(dvT=d)['ps'] for d in (0.35,0.5,0.65)}
+
 # D3a: ROIC perpétuo > WACC (só ilustrativo)
 def tv_roic(roic):
     bb=run(); wp=bb['wp']; n11=bb['rows'][-1]['nopat']*(1+g); tv=n11*(1-g/roic)/(wp-g); return (bb['pv']+tv*bb['rows'][-1]['fd']-claims)/shares
@@ -44,5 +45,5 @@ gd2=run(gs=gs_g,mT=0.125); res['guid2']=dict(ps=gd2['ps'])
 # Taxa implícita no preço: deslocamento uniforme de WACC que iguala ao preço
 for px in (8.06,5.44):
     sh=brentq(lambda x: run(wacc_shift=x)['ps']-px,-0.08,0.05); res[f'impl_{px}']=dict(shift=sh,w1=b['rows'][0]['wacc']+sh,wp=b['wp']+sh)
-json.dump(res,open('out/analysis.json','w'),default=float,indent=1)
+json.dump(res,open('analysis.json','w'),default=float,indent=1)
 print(json.dumps({k:v for k,v in res.items() if k!='base'},default=lambda x:round(x,3),indent=1))
