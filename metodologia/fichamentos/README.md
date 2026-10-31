@@ -83,9 +83,11 @@ Registrados nos fichamentos correspondentes. Os principais:
 - **[P]** FCFE com dupla contagem (p. 168–170); soma do exemplo do laticínio (42,214, não 41,532, p. 126–127); λ com "×" em vez de "+"; "0,075" em vez de "0,50" (p. 274); exemplo têxtil de P/VP justo com retenção inconsistente (36,9% × 39,9%) e resultado não reproduzido (p. 306–307, tema 34); "exigível de longo prazo = direitos a receber" (p. 18, tema 04); margem "pela metade" usando 30% (p. 364, tema 41); DVA atribuída ao IASB (p. 93, tema 08).
 - **[D]** APV com "+ custos de falência" (p. 19); Alloy Mills 1.600 × 1.300; Amgen Ke 10,80% × 13,08%; denominador do ROC_t (p. 407); Reliance 21.166 × 21.666; notas editoriais "[NOTE]" esquecidas (p. 587, 603).
 
-## Decisões que dependem de você
+## Decisões
 
-Cada arquivo termina com "Dúvidas abertas". As de maior impacto na `METODOLOGIA.md`:
+As decisões abaixo foram tomadas em 31/10/2026 e estão registradas em [`../DECISOES.md`](../DECISOES.md), com o procedimento de WACC por região em [`../PROCEDIMENTO_WACC.md`](../PROCEDIMENTO_WACC.md). As demais "Dúvidas abertas" de cada arquivo continuam pendentes.
+
+Decisões tomadas:
 
 1. Convenção de **caixa no EV** e de **IFRS 16** (arrendamentos na dívida ou não): temas 07, 30, 35.
 2. **ROIC na perpetuidade**: igual ao WACC ou com spread: temas 16, 29.
