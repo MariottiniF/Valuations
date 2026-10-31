@@ -28,8 +28,9 @@ Registro das decisões tomadas a partir dos fichamentos ([`fichamentos/README.md
 
 ## Parâmetros a fixar
 
-Estes valores dependem de dados da data da valuation e não foram fixados aqui:
+Estes valores dependem de dados da data da valuation e **não foram fixados aqui de propósito**: devem ser buscados em fontes confiáveis a cada atualização, conforme [`FONTES_DADOS.md`](FONTES_DADOS.md), e guardados no [`MACRO.md`](MACRO.md) trimestral.
 
 - IPCA e PIB real de longo prazo para o LTG em R$ (cenário macro, C1).
 - Prêmio implícito do Ibovespa do trimestre (D5).
 - Alíquotas marginais dos EUA e dos países europeus (tabela de Damodaran, D10).
+- NTN-B atual e Treasury/Bund de 10 anos.
