@@ -26,7 +26,7 @@ Guia único e sequencial para montar uma valuation, do começo ao fim. Cada etap
 4. **Ke = Rf + β × ERP.**
 5. **Kd** — dívida a mercado (título líquido) ou rating/rating sintético + spread. Alíquota marginal (D34% no Brasil; tabela Damodaran fora).
 6. **Estrutura de capital** — pesos a mercado; dívida incluindo arrendamentos (D2); caixa fora (D1).
-7. **WACC único** (D11): um só WACC para todo o período explícito e para a perpetuidade, sem *rolling WACC*. Pesos conforme o critério de **D12** (padrão: atuais a mercado; exceções para desalavancagem/alavancagem concreta e para estrutura incerta); Rf da **NTN-B mais longa** (D4); ERP de **longo prazo** (D5).
+7. **WACC único** (D11): um só WACC para todo o período explícito e para a perpetuidade, sem *rolling WACC* — **exceto no caso (b) de D12** (desalavancagem/alavancagem concreta e significativa documentada), onde o WACC migra do atual para o da estrutura-alvo ao longo do prazo divulgado. Pesos conforme o critério de **D12** (padrão: atuais a mercado; rolling para desalavancagem/alavancagem concreta; atuais + sensibilidade para estrutura incerta); Rf da **NTN-B mais longa** (D4); ERP de **longo prazo** (D5).
 8. **Checagem de sanidade**: comparar com o WACC médio do setor (Damodaran, fora do Brasil; pares locais, no Brasil). Divergência > 1,5 p.p. exige explicação.
 
 ### 1.4 Saída desta etapa
@@ -83,7 +83,7 @@ Uma tabela única: Rf, β, ERP, Ke, Kd(1−t), pesos e WACC (único) — cada li
 
 ### 4.4 Estágios (tema 13, 14)
 - Definir o número de estágios e a duração de cada um, conforme a maturidade e a vantagem competitiva (ligação com D3a).
-- Todos os anos descontados pelo **mesmo WACC** da etapa 1 (D11). A fase de transição converge crescimento, margem e ROIC aos parâmetros de perpetuidade, **nunca** a taxa de desconto.
+- Todos os anos descontados pelo **mesmo WACC** da etapa 1 (D11), salvo no caso (b) de D12, em que o WACC migra do atual para o da estrutura-alvo ao longo do prazo divulgado (rolling WACC). A fase de transição converge crescimento, margem e ROIC aos parâmetros de perpetuidade; a taxa de desconto só muda quando D12(b) estiver ativo, e só conforme o cronograma divulgado pela empresa, nunca por julgamento ad hoc.
 
 ### 4.5 Casos especiais (acionar se aplicável)
 - Prejuízo, cíclica, start-up → tema 45.
@@ -97,7 +97,7 @@ Uma tabela única: Rf, β, ERP, Ke, Kd(1−t), pesos e WACC (único) — cada li
 - **ROIC = WACC** na perpetuidade, salvo caso especial justificado por escrito (D3a).
 - **g = LTG**, na moeda da valuation, com g ≤ Rf dessa moeda (seção 5 do `PROCEDIMENTO_WACC.md`).
 - ΔNCG ≥ 0 na perpetuidade (C2).
-- O valor terminal usa o mesmo WACC do explícito (D11), tanto no denominador `(WACC − g)` quanto no desconto a valor presente: `VT / (1 + WACC)^n`. Com ROIC = WACC, `VT = NOPAT(n+1) / WACC`.
+- O valor terminal usa o WACC vigente ao final do período explícito (D11; com D12(b) ativo, é o WACC da estrutura-alvo, não o inicial), tanto no denominador `(WACC − g)` quanto no desconto a valor presente: `VT / (1 + WACC)^n`. Com ROIC = WACC, `VT = NOPAT(n+1) / WACC`.
 
 ---
 
