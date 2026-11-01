@@ -121,6 +121,8 @@ Uma tabela única: Rf, β, ERP, Ke, Kd(1−t), pesos e WACC (único) — cada li
 
 ## 8. Relatório final (material do vídeo)
 
+O roteiro do vídeo segue [`ROTEIRO_VIDEO.md`](ROTEIRO_VIDEO.md): falas sem códigos internos (D1, C2...), com o porquê de cada escolha explicado, e Debt e Equity sempre por extenso.
+
 Checklist do que não pode faltar:
 - [ ] Tabela de WACC com fontes e datas (etapa 1.4).
 - [ ] Tabela de pares e indicadores (etapa 2.3, 3.3).
